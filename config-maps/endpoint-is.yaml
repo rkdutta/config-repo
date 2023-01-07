@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  IS_HOST: project-vp-dev-is
+  IS_PORT: "5555"
+  IS_URL:  http://project-vp-dev-is:5555 
+kind: ConfigMap
+metadata:
+  name: endpoint-is
+  namespace: placeholder

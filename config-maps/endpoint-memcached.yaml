@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  MEMCACHED_HOST: project-vp-dev-memcached
+kind: ConfigMap
+metadata:
+  name: endpoint-memcached
+  namespace: placeholder

@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- api-gateway-applications-config.yaml
+- api-gateway-applications.yaml
+- api-gateway-policies.yaml
+- endpoint-db-attachment.yaml
+- endpoint-db-cache.yaml
+- endpoint-db-cs.yaml
+- endpoint-db-drs.yaml
+- endpoint-db-events.yaml
+- endpoint-db-ewih.yaml
+- endpoint-db-questionnaire-read.yaml
+- endpoint-db-questionnaire.yaml
+- endpoint-db-rcip.yaml
+- endpoint-db-wm.yaml
+- endpoint-ip-ldap.yaml
+- endpoint-is.yaml
+- endpoint-memcached.yaml
+- endpoint-um.yaml
