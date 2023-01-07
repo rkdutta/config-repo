@@ -14,17 +14,9 @@ configMapGenerator:
   name: endpoint-db-cache
 - behavior: merge
   files:
+  - files/DIPAutTestNodeRouting.zip
+  name: DIPAutTestNodeRouting
+- behavior: merge
+  files:
   - files/applications-config.yaml
   name: applications-config
-- behavior: merge
-  files:
-  - files/podinfo-values.yaml
-  name: podinfo-values
-- behavior: merge
-  files:
-  - files/test-file-1.tgz
-  name: test-file-1
-- behavior: merge
-  files:
-  - files/test-file-2.tgz
-  name: test-file-2

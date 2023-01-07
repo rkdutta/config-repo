@@ -11,15 +11,15 @@ if [[ -z "$basePath" ]]; then
  exit 1;
 fi
 
-# if [[ -z "$tenant" ]]; then
-#  echo "missing input tenant"
-#  exit 1;
-# fi
+if [[ -z "$tenant" ]]; then
+ echo "missing input tenant"
+ exit 1;
+fi
 
-# if [[ -z "$environment" ]]; then
-#  echo "missing input environment"
-#  exit 1;
-# fi
+if [[ -z "$environment" ]]; then
+ echo "missing input environment"
+ exit 1;
+fi
 
 cd $basePath
 rm -f kustomization.yaml
@@ -48,33 +48,33 @@ for dir in */ ; do
 done
 
 
-# # for tenants
+# for tenants
 
-# cd ../tenants/$tenant/$environment
-# rm -f kustomization.yaml
-# kustomize init
-# kustomize edit add resource "../../../base"
+cd ../tenants/$tenant/$environment
+rm -f kustomization.yaml
+kustomize init
+kustomize edit add resource "../../../base"
 
-# kustomize edit set namespace $tenant-$environment
+kustomize edit set namespace $tenant-$environment
 
-# for dir in */ ; do
-#     echo "Processing in $dir"
+for dir in */ ; do
+    echo "Processing in $dir"
 
-#     for file in $dir*; 
-#     do 
-#         echo "Processing $file file..."
+    for file in $dir*; 
+    do 
+        echo "Processing $file file..."
         
-#         fileNameWithOutPath=`basename $file`
-#         fileNameExtn=${fileNameWithOutPath##*.}
-#         fileNameWithOutPathAndExtn=`basename $file .$fileNameExtn`
+        fileNameWithOutPath=`basename $file`
+        fileNameExtn=${fileNameWithOutPath##*.}
+        fileNameWithOutPathAndExtn=`basename $file .$fileNameExtn`
    
-#     if [[ $dir == "files/" ]]; then
-#         kustomize edit add configmap $fileNameWithOutPathAndExtn --behavior=merge --from-file=$file
-#     elif [[ $dir == "envs/" ]]; then
-#         kustomize edit add configmap $fileNameWithOutPathAndExtn --behavior=merge --from-env-file=$file
-#     else
-#         echo "Unsupported directory structure -  $dir"
-#         exit 1
-#     fi
-#     done
-# done
+    if [[ $dir == "files/" ]]; then
+        kustomize edit add configmap $fileNameWithOutPathAndExtn --behavior=merge --from-file=$file
+    elif [[ $dir == "envs/" ]]; then
+        kustomize edit add configmap $fileNameWithOutPathAndExtn --behavior=merge --from-env-file=$file
+    else
+        echo "Unsupported directory structure -  $dir"
+        exit 1
+    fi
+    done
+done
