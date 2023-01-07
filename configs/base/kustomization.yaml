@@ -81,7 +81,3 @@ configMapGenerator:
   files:
   - files/api-gateway-applications-config.yaml
   name: api-gateway-applications-config
-- behavior: create
-  files:
-  - files/db-configurator.yaml
-  name: db-configurator
