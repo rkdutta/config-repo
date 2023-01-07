@@ -1,0 +1,59 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+configMapGenerator:
+- behavior: create
+  files:
+  - files/api-gateway.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/db-configurator.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/db-initializer.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/ewih-service.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/globals.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/integration-server.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/kie-server.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/kie-workbench.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/ldap.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/memcached.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/my-webmethods-server.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/process-service.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/universal-messaging-configurator.yaml
+  name: helmrelease-inputs
+- behavior: merge
+  files:
+  - files/universal-messaging.yaml
+  name: helmrelease-inputs
