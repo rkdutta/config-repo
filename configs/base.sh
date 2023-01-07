@@ -41,7 +41,7 @@ for dir in */ ; do
     elif [[ $dir == "files/" ]]; then
         kustomize edit add configmap $fileNameWithOutPathAndExtn --behavior=create --from-file=$file
     elif [[ $dir == "values/" ]]; then
-        kustomize edit add configmap helmrelease-values --behavior=merge --from-file=$file
+        kustomize edit add configmap helmrelease-values --behavior=create --from-file=$file
     else
         echo "Unsupported directory structure -  $dir"
         exit 1
