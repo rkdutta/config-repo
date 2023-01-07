@@ -81,3 +81,20 @@ configMapGenerator:
   files:
   - files/api-gateway-applications-config.yaml
   name: api-gateway-applications-config
+- behavior: merge
+  files:
+  - values/api-gateway.yaml
+  - values/db-configurator.yaml
+  - values/db-initializer.yaml
+  - values/ewih-service.yaml
+  - values/globals.yaml
+  - values/integration-server.yaml
+  - values/kie-server.yaml
+  - values/kie-workbench.yaml
+  - values/ldap.yaml
+  - values/memcached.yaml
+  - values/my-webmethods-server.yaml
+  - values/process-service.yaml
+  - values/universal-messaging-configurator.yaml
+  - values/universal-messaging.yaml
+  name: helmrelease-values
